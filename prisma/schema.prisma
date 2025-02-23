@@ -122,11 +122,11 @@ model FileOnUser {
   /// User ID the file belongs to
   userId      Int
   /// User the file belongs to
-  user        User               @relation(fields: [userId], references: [id])
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   /// File ID the file belongs to
   fileId      Int
   /// File the file belongs to
-  file        File               @relation(fields: [fileId], references: [id])
+  file        File               @relation(fields: [fileId], references: [id], onDelete: Cascade)
 }
 
 model File {
@@ -178,5 +178,5 @@ model PaymentDetail {
   /// User ID the payment detail belongs to
   userId        Int       @unique()
   /// User the payment detail belongs to
-  user          User      @relation(fields: [userId], references: [id])
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

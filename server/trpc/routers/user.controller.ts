@@ -1,7 +1,12 @@
 import { User } from '$pt'
 
 import {
-  UserCreateArgsSchema, UserDeleteArgsSchema, UserFindFirstArgsSchema, UserFindManyArgsSchema, UserUpdateArgsSchema } from '$zm'
+  UserCreateArgsSchema, UserDeleteArgsSchema, UserFindFirstArgsSchema, UserFindManyArgsSchema, UserUpdateArgsSchema, UserDeleteManyArgsSchema } from '$zm'
+
+  // Functions
+import { seedUsers } from '../../libs/User/function/seed'
+
+
 
 
 
@@ -22,7 +27,7 @@ export const userRouter = router({
     }),
 
   // Find many
-  findMany: protectedProcedure
+  findMany: publicProcedure
     .input(extendWithMeta(extendWithSearch(UserFindManyArgsSchema)))
     .query(async ({ input, ctx }) => {
       const { args, search, includeCount, includeModel } = input || {}
@@ -67,5 +72,18 @@ export const userRouter = router({
     .input(UserDeleteArgsSchema)
     .mutation(async ({ input, ctx }) => {
       return ctx.prisma.user.delete(input)
+    }),
+
+  // Delete many
+  deleteMany: protectedProcedure
+    .input(UserDeleteManyArgsSchema)
+    .mutation(async ({ input, ctx }) => {
+      return ctx.prisma.user.deleteMany(input)
+    }),
+
+  // Seed
+  seed: seedProcedure
+    .mutation(async ({ ctx }) => {
+      return seedUsers()
     }),
 })

@@ -1,28 +1,25 @@
-import type {
-  UserCreateInputSchema,
-  UserPartialWithRelations,
-  UserUpdateInputSchema,
-} from '~z'
+import type { User } from '$pt'
+import { TableColumn } from '$ui'
 
-// Models
-import { TableColumn } from '~/components/Table/models/table-column.model'
+import {
+  UserCreateInputSchema,
+  UserUpdateInputSchema
+} from '$zi'
+
 
 type CreateInputSchema = $infer<typeof UserCreateInputSchema>
 type UpdateInputSchema = $infer<typeof UserUpdateInputSchema>
 
 export function useUserUtils() {
-  // Store
-  const instanceStore = useInstanceStore()
-
-  function getUserInput(user?: UserPartialWithRelations) {
+  function getUserInput(user?: Partial<User>) {
     return {
-      id: undefined as number | undefined,
+      id: undefined as unknown as number,
 
       // Relations
       // ...
 
-      ...user as IItem,
-    } satisfies UserPartialWithRelations
+      ...user as Partial<User>,
+    } satisfies User
   }
 
   function getUserCreateDto(user: ReturnType<typeof getUserInput>): CreateInputSchema {
@@ -52,12 +49,12 @@ export function useUserUtils() {
       dataType: 'number',
       alwaysSelected: true,
     }),
-   ] as TableColumn<UserPartialWithRelations>[]
+   ] as TableColumn<User>[]
   }
 
   /** Details page link */
-  function getUserLink(user: Pick<UserPartialWithRelations, 'id'>) {
-    return $p(`/${instanceStore.instanceDomainName}/users/${user.id}`)
+  function getUserLink(user: Pick<User, 'id'>) {
+    return $p(`/users/${user.id}`)
   }
 
   return {

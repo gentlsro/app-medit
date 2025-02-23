@@ -2,21 +2,21 @@ import '../shared/timestamps'
 import './file-on-user'
 
 model File extends Timestamps {
-  id Int @id @default(autoincrement())
+  id    Int          @id @default(autoincrement())
 
   /// File name
-  name         String
+  name  String
 
   /// File type
-  type         String
+  type  String
 
   /// File size
-  size         Int
+  size  Int
 
   /// File path
-  path         String        @unique
+  path  String       @unique
 
   // Relations
   /// User ID the file belongs to
-  users        FileOnUser[]
+  users FileOnUser[]
 }

@@ -1,8 +1,9 @@
-import { mergeConfigs } from 'unocss'
 import { join } from 'node:path'
+import { mergeConfigs } from 'unocss'
 
 // The path relative to the current working directory
 // as UnoCSS is only saved in the final layer
+// eslint-disable-next-line node/prefer-global/process
 const unoConfigPath = join(process.cwd(), '.nuxt', 'uno.config.mjs')
 
 // Require the configuration synchronously

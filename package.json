@@ -63,6 +63,7 @@
     "@prisma/generator-helper": "^6.4.1",
     "@prisma/internals": "^6.4.1",
     "@types/jsonwebtoken": "9.0.9",
+    "@unocss/core": "^66.0.0",
     "@unocss/eslint-plugin": "66.0.0",
     "@unocss/nuxt": "66.0.0",
     "@vueuse/core": "12.7.0",

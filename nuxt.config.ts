@@ -16,7 +16,19 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/eslint',
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxtjs/device',
+    'nuxt-lodash',
+    'dayjs-nuxt',
   ],
+
+  imports: {
+    dirs: [resolve('./client/state')],
+  },
 
   // Runtime config https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
   runtimeConfig: {

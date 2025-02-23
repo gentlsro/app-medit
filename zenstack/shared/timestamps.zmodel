@@ -21,4 +21,6 @@ abstract model Timestamps {
 
   /// Identifier of the user who deleted the record
   deletedById Int?
+
+  @@allow('all', true)
 }

@@ -1,9 +1,16 @@
 <script setup lang="ts">
-
+//
 </script>
 
 <template>
-  <div>
-    Hello
-  </div>
+  <NuxtLayout>
+    <Notifications />
+
+    <NuxtPage />
+
+    <NuxtLoadingIndicator
+      color="#1e88e5"
+      font="500"
+    />
+  </NuxtLayout>
 </template>

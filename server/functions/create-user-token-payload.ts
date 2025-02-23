@@ -22,7 +22,7 @@ export function createUserTokenPayload(
     }
   }>,
 ): IAuthJwt {
-  const isVerified = user.files.every(file => file.approved)
+  const isVerified = user.files.length && user.files.every(file => file.approved)
 
   return {
     ...omit(user, ['files']),

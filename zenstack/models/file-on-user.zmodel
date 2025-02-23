@@ -19,13 +19,13 @@ model FileOnUser extends Timestamps {
   userId   Int
 
   /// User the file belongs to
-  user     User               @relation(fields: [userId], references: [id])
+  user     User               @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   /// File ID the file belongs to
   fileId   Int
 
   /// File the file belongs to
-  file     File               @relation(fields: [fileId], references: [id])
+  file     File               @relation(fields: [fileId], references: [id], onDelete: Cascade)
 }
 
 enum FileOnUserTypeEnum {
