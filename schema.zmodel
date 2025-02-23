@@ -1,0 +1,37 @@
+import './zenstack/models/user'
+import './zenstack/models/file'
+import './zenstack/models/file-on-user'
+import './zenstack/models/payment-detail'
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["relationJoins", "postgresqlExtensions"]
+  binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DB_URL")
+}
+
+generator json {
+  provider = "prisma-json-types-generator"
+}
+
+generator zod {
+  provider                         = "zod-prisma-types"
+  useMultipleFiles                 = true
+  writeBarrelFiles                 = true
+  createInputTypes                 = true
+  createModelTypes                 = false
+  addInputTypeValidation           = true
+  addIncludeType                   = true
+  addSelectType                    = true
+  validateWhereUniqueInput         = false
+  createOptionalDefaultValuesTypes = false
+  createRelationValuesTypes        = false
+  createPartialTypes               = false
+  useDefaultValidators             = true
+  coerceDate                       = true
+  writeNullishInModelTypes         = true
+}

@@ -1,0 +1,24 @@
+import '../models/user'
+
+abstract model Timestamps {
+  /// Date and time when the record was created, the default value is the current date and time
+  createdAt DateTime @default(now())
+
+  /// Identifier of the user who created the record
+  createdById Int?
+
+  /// Date and time of the last update of the record, the default value is the current date and time
+  updatedAt DateTime?
+
+  /// Identifier of the user who last updated the record
+  updatedById Int?
+
+  /// Indicates whether the record is marked as deleted
+  deleted Boolean @default(false)
+
+  /// Date and time of deletion of the record
+  deletedAt DateTime?
+
+  /// Identifier of the user who deleted the record
+  deletedById Int?
+}

@@ -1,0 +1,40 @@
+import '../shared/timestamps'
+import './user'
+import './file'
+
+model FileOnUser extends Timestamps {
+  id       Int                @id @default(autoincrement())
+
+  /// Type of the file
+  type     FileOnUserTypeEnum @default(DOCUMENT)
+
+  /// Kind of the vertification (if applicable)
+  kind     FileOnUserKindEnum @default(ID_CARD)
+
+  /// Approved
+  approved Boolean            @default(false)
+
+  // Relations
+  /// User ID the file belongs to
+  userId   Int
+
+  /// User the file belongs to
+  user     User               @relation(fields: [userId], references: [id])
+
+  /// File ID the file belongs to
+  fileId   Int
+
+  /// File the file belongs to
+  file     File               @relation(fields: [fileId], references: [id])
+}
+
+enum FileOnUserTypeEnum {
+  VERIFICATION
+  DOCUMENT
+}
+
+enum FileOnUserKindEnum {
+  ID_CARD
+  PASSPORT
+  MEDICAL_IDENTIFICATION
+}

@@ -1,0 +1,16 @@
+import '../shared/timestamps'
+import './user'
+
+model PaymentDetail extends Timestamps {
+  id            Int    @id @default(autoincrement())
+
+  /// Bank account number
+  accountNumber String
+
+  // Relations
+  /// User ID the payment detail belongs to
+  userId          Int    @unique
+
+  /// User the payment detail belongs to
+  user          User   @relation(fields: [userId], references: [id])
+}

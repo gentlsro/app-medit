@@ -1,0 +1,45 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "scss.lint.unknownAtRules": "ignore",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "i18n-ally.keystyle": "nested",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.output": true,
+    "**/tsconfig.json": true,
+    // "**/.gitignore": true,
+    "**/.npmrc": true,
+    "**/.nuxt": true,
+    "**/pnpm*": true
+  },
+  "i18n-ally.localesPaths": [
+    "i18n"
+  ],
+  "vsc-nodecmd.packageNotifications": false,
+  "javascript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "i18n-ally.keysInUse": [
+    "mimetype.*",
+    "mimetype.*/",
+    "mimetype.*/*",
+    "zod.*",
+    "style.*",
+    "general.second",
+    "general.millisecond",
+    "lorem"
+  ],
+  "i18n-ally.sourceLanguage": "cs-CZ",
+  "i18n-ally.displayLanguage": "cs-CZ"
+}

@@ -1,0 +1,50 @@
+import '../shared/timestamps'
+import './file-on-user'
+import './payment-detail'
+
+model User extends Timestamps {
+  id            Int            @id @default(autoincrement())
+
+  /// First name of the user
+  /// @zod.string.min(1).max(255)
+  firstName     String
+
+  /// Last name of the user
+  /// @zod.string.min(1).max(255)
+  lastName      String
+
+  /// Email address of the user
+  /// @zod.string.email()
+  email         String         @unique
+
+  /// Password of the user
+  password      String         @password
+
+  /// The type of the user
+  type          UserTypeEnum   @default(PATIENT)
+
+  /// Birth of the user
+  /// @zod.number.min(1900).max(2025)
+  birthYear     Int
+
+  /// Country of the user
+  /// @zod.string.min(1).max(255)
+  country       String
+
+  /// City of the user
+  /// @zod.string.min(1).max(255)
+  city          String
+
+  // Relations
+  /// Payment detail of the user
+  paymentDetail PaymentDetail?
+
+  /// Files of the user
+  files         FileOnUser[]
+}
+
+enum UserTypeEnum {
+  PATIENT
+  MEDICAL_PERSON
+  CLINIC
+}
