@@ -48,12 +48,5 @@ const seed = [
         </div>
       </template>
     </List>
-
-    <!-- <Btn
-      v-for="({ label, fnc }, idx) in seed"
-      :key="idx"
-      :label
-      @click="fnc"
-    /> -->
   </PageWrapper>
 </template>

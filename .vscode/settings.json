@@ -28,8 +28,7 @@
     "i18n"
   ],
   "vsc-nodecmd.packageNotifications": false,
-  "javascript.preferences.importModuleSpecifier": "project-relative",
-  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "i18n-ally.keysInUse": [
     "mimetype.*",
     "mimetype.*/",
