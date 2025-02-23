@@ -22,9 +22,10 @@ async function main() {
     })
 
     if (typeof res === 'function') {
+      console.log('Log ~ main ~ res:', res)
       await res()
     }
-  } catch {
+  } catch (e) {
     process.exit(0)
   }
 }

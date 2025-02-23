@@ -1,5 +1,8 @@
 import { config } from './config';
 
 export default extendUtilitiesConfig({
-  app: config
+  app: config,
+  prisma: {
+    useInsensitiveFilter: true,
+  },
 })

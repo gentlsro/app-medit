@@ -2,6 +2,9 @@ import prismaInternals from '@prisma/internals'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { DMMF } from '@prisma/generator-helper'
+import { createResolver } from 'nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
 
 const { getDMMF } = prismaInternals
 
@@ -182,8 +185,8 @@ export async function generate() {
   await generateTypes({
     generateDeclarations: false,
     generateInsertionTypes: false,
-    outputPath: '../prisma/prisma-types.ts',
-    schemaPath: '../prisma/schema.prisma',
+    outputPath: resolve('../prisma/prisma-types.ts'),
+    schemaPath: resolve('../prisma/schema.prisma'),
     useType: true,
   })
 }

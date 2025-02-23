@@ -1,4 +1,4 @@
-import { userRouter } from './routers/user.router'
+import { userRouter } from './routers/user.controller'
 
 export const appRouter = router({
   user: userRouter,
