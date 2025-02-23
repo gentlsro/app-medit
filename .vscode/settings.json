@@ -19,7 +19,7 @@
     "**/node_modules": true,
     "**/.output": true,
     "**/tsconfig.json": true,
-    // "**/.gitignore": true,
+    "**/.gitignore": true,
     "**/.npmrc": true,
     "**/.nuxt": true,
     "**/pnpm*": true

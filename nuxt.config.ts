@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module'
-import { config } from './config'
 import { createResolver } from 'nuxt/kit'
+import { config } from './config'
 
 const { resolve } = createResolver(import.meta.url)
 
